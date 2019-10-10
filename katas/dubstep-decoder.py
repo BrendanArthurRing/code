@@ -30,19 +30,16 @@ def song_decoder(song):
     return " ".join(song.replace('WUB', ' ').split())
 
 
-def song_decoder(song):
-    return song.replace('WUB', ' ').strip()
-
 # Test Block
 
 
 class Test:
-    def assert_equals(a, b, text):
+    def assert_equals(a, b, hint):
         if a == b:
             print("Passed \n \n")
         if a != b:
             print(f"Failed\n{a} should equal {b}\n\n")
-        print(text)
+        print(hint)
 
     def describe(text):
         print(text)
