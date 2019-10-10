@@ -50,6 +50,32 @@ def perimeter(n):
 	return x
 
 
+# Best Practice was
+
+def fib(n):
+    a, b = 0, 1
+
+    for i in range(n+1):
+        if i == 0:
+            yield b
+        else:
+            a, b = b, a+b
+            yield b
+
+
+def perimeter(n):
+    return sum(fib(n)) * 4
+
+# Clever was
+
+
+def perimeter(n):
+    a, b = 1, 2
+    while n:
+        a, b, n = b, a + b, n - 1
+    return 4 * (b - 1)
+
+
 # Tests
 Test.assert_equals(perimeter(5), 80)
 Test.assert_equals(perimeter(7), 216)
