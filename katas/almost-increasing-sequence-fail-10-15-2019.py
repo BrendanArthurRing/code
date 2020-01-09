@@ -4,11 +4,25 @@
 # Just removing the element causes issues because of duplicates
 
 
-def decr_pair(a):
+def find_first_decreasing_pair(a):
     for i, j in zip(a, a[1:]):
         if i > j:
             print(f'Decreasing Pair {i, j}')
             return (i, j)
+
+
+decreasing_pairs = []
+
+
+def find_decreasing_pairs(a):
+    for i, j in zip(a, a[1:]):
+        if i > j:
+            print(f'Decreasing Pair {i, j}')
+            decreasing_pairs.append((i, j))
+
+
+def split_at_decreasing_pairs(a, *):
+    pass
 
 
 def decr_split(a, y, z):
