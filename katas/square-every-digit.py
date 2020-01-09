@@ -14,14 +14,14 @@ Numbers
 
 
 def square_digits(num):
-    result = [int(i)**2 for i in str(num)]
-    return int(''.join(map(str, result)))
+    squared = [int(i)**2 for i in str(num)]
+    return int(''.join(map(str, squared)))
 
 
+# Needed to figure out how to join a list of ints
 # https://www.geeksforgeeks.org/python-convert-a-list-of-multiple-integers-into-a-single-integer/
 
 # Test Block
-
 
 class Test:
     def assert_equals(a, b):
@@ -32,3 +32,11 @@ class Test:
 
 
 Test.assert_equals(square_digits(9119), 811181)
+
+
+# The best practice was
+def square_digits(num):
+    ret = ""
+    for x in str(num):
+        ret += str(int(x)**2)
+    return int(ret)

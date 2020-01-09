@@ -56,14 +56,17 @@ def disarium_number(number):
     print(f"Results: {results}")
     result = sum(results)
     print(f"Number: {number}, Result: {result}")
-    import csv
-    with open("numbers.csv", "w") as file:
-        writer = csv.writer(file)
-        writer.writerow(results)
+
     if number == result:
         return "Disarium !!"
     else:
         return "Not !!"
+
+# This was the best practice - using enumerate..
+
+
+def disarium_number(n):
+    return "Disarium !!" if n == sum(int(d)**i for i, d in enumerate(str(n), 1)) else "Not !!"
 
 # There is a problem using the index function, because if there are duplicated numbers the index function will return the lowest indext number meaning a number later in the list will be powered by a lower index position.
 
@@ -98,5 +101,13 @@ Test.it("Basic Test")
 # These Dont Work - fixed by not using index() as power
 # Test.assert_equals(disarium_number(1676), "Disarium !!")
 # Test.assert_equals(disarium_number(2427), "Disarium !!")
-# This does not work
+# This does not work - because the actual text is wrong - trying it again on codewars and the code above worked
 Test.assert_equals(disarium_number(24226467987), "Disarium !!")
+
+
+'''
+    import csv
+    with open("numbers.csv", "w") as file:
+        writer = csv.writer(file)
+        writer.writerow(results)
+'''
